@@ -1,0 +1,15 @@
+algo - Solutions to algorithmic problems <https://github.com/mariosal/algo>
+
+FOLDERS
+    - etc/
+        Various classical problems, e.g. Shortest Path, MST, Graph Traversal
+    - euler/
+        Mathematical problems of Project Euler <https://projecteuler.net/>
+    - hellenico/
+        Problems of Hellenic Computing Olympiad <http://hellenico.gr/>
+    - pdp/
+        Problems of Panhellenic Contest in Informatics <http://pdp.gr/>
+    - spoj/
+        Problems of Sphere Online Judje <https://spoj.pl/>
+    - usaco/
+        Problems of USA Computing Olympiad Training <http://train.usaco.org/>
