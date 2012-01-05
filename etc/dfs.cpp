@@ -41,7 +41,7 @@ int main() {
 
     scanf( "%d %d", &V, &E );
     L.resize( V + 1 );
-    for ( i = 0; i < E; ++i ) {
+    for ( i = 0; i < E; i += 1 ) {
         scanf( "%d %d %*d", &p, &r );
 
         L[ p ].push_back( r );
