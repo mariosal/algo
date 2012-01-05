@@ -9,21 +9,21 @@ using namespace std;
 bool dfs( vector< list< int > > L, int source, int target ) {
     int frontier;
     list< int >::iterator it;
-    set< int > S;
-    stack< int > St;
+    set< int > coloured;
+    stack< int > S;
 
-    St.push( source );
-    while ( !St.empty() ) {
-        frontier = St.top();
-        St.pop();
-        S.insert( frontier );
+    coloured.insert( source );
+    S.push( source );
+    while ( !S.empty() ) {
+        frontier = S.top();
+        S.pop();
 
         for ( it = L[ frontier ].begin(); it != L[ frontier ].end(); ++it ) {
             if ( *it == target ) {
                 return true;
             }
-            if ( S.insert( *it ).second ) {
-                St.push( *it );
+            if ( coloured.insert( *it ).second ) {
+                S.push( *it );
             }
         }
     }

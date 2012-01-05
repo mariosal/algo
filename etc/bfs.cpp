@@ -9,9 +9,10 @@ using namespace std;
 bool bfs( vector< list< int > > L, int source, int target ) {
     int frontier;
     list< int >::iterator it;
-    set< int > S;
+    set< int > coloured;
     queue< int > Q;
 
+    coloured.insert( source );
     Q.push( source );
     while ( !Q.empty() ) {
         frontier = Q.front();
@@ -21,7 +22,7 @@ bool bfs( vector< list< int > > L, int source, int target ) {
             if ( *it == target ) {
                 return true;
             }
-            if ( S.insert( *it ).second ) {
+            if ( coloured.insert( *it ).second ) {
                 Q.push( *it );
             }
         }
