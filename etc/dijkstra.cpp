@@ -7,7 +7,7 @@ using namespace std;
 
 typedef pair< int, int > ii;
 
-int dijkstra( vector< list< ii > > L, int source, int target ) {
+vector< int > dijkstra( vector< list< ii > > L, int source ) {
     int v, d, v2, d2;
 
     vector< int > D( L.size(), 987654321 );
@@ -36,11 +36,11 @@ int dijkstra( vector< list< ii > > L, int source, int target ) {
         }
     }
 
-    return D[ target ];
+    return D;
 }
 
 int main() {
-    int V, E, p, r, w, i;
+    int V, E, v, u, w;
 
     vector< list< ii > > L;
 
@@ -49,13 +49,14 @@ int main() {
 
     scanf( "%d %d", &V, &E );
     L.resize( V + 1 );
-    for ( i = 0; i < E; i += 1 ) {
-        scanf( "%d %d %d", &p, &r, &w );
 
-        L[ p ].push_back( ii( r, w ) );
-        L[ r ].push_back( ii( p, w ) );
+    while ( E-- ) {
+        scanf( "%d %d %d", &v, &u, &w );
+
+        L[ v ].push_back( ii( u, w ) );
+        L[ u ].push_back( ii( v, w ) );
     }
-    printf( "%d\n", dijkstra( L, 1, 5 ) );
+    printf( "%d\n", dijkstra( L, 1 )[ 5 ] );
 
     fclose( stdin );
     fclose( stdout );
