@@ -28,9 +28,5 @@ int main() {
         }
     }
 
-    free( P );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

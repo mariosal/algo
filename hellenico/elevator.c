@@ -39,9 +39,5 @@ int main( void ) {
 
     printf( "%d %d\n", md, mw );
 
-    free( w );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

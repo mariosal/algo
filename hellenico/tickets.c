@@ -21,8 +21,5 @@ int main() {
 
     printf( "%hu\n", price );
 
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

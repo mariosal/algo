@@ -55,9 +55,5 @@ int main() {
 
     printf( "%d %d\n", work, idle );
 
-    free( milk );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

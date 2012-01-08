@@ -61,9 +61,5 @@ int main() {
         printf( "%s %d\n", people[ i ].name, people[ i ].total );
     }
 
-    free( people );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

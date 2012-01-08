@@ -42,10 +42,5 @@ int main( void ) {
         printf( "%d\n", nu );
     }
 
-    free( w );
-    free( one );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

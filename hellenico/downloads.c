@@ -19,9 +19,6 @@ int main() {
 
     printf( "%.0f\n", time );
 
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }
 

@@ -57,8 +57,5 @@ int main() {
     }
     printf( "%d\n", dijkstra( L, 1 ) );
 
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

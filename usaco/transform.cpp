@@ -109,10 +109,5 @@ int main() {
 
     printf( "%d\n", change );
 
-    free( a.b );
-    free( b.b );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

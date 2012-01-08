@@ -34,8 +34,5 @@ int main() {
         printf( "%s\n", V[ i ].c_str() );
     }
 
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

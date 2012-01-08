@@ -29,8 +29,5 @@ int main() {
         puts( "STAY" );
     }
 
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

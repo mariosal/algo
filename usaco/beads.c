@@ -48,10 +48,5 @@ int main() {
 
     printf( "%hd\n", max );
 
-    free( beads );
-    free( cat );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

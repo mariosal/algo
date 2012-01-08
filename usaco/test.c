@@ -14,8 +14,5 @@ int main() {
     scanf( "%hd %d", &a, &b );
     printf( "%hd\n", a + b );
 
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

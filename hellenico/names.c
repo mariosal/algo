@@ -53,11 +53,5 @@ int main() {
 
     printf( "%s\n", original );
 
-    free( string );
-    free( original );
-    free( transformed );
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

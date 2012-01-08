@@ -17,8 +17,5 @@ int main() {
     scanf( "%hd", &N );
     qubits( N, 'A', 'C', 'B' );
 
-    fclose( stdin ); 
-    fclose( stdout ); 
-
     return 0;
 }

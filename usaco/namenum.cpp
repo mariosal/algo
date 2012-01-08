@@ -50,10 +50,5 @@ int main() {
         puts( "NONE" );
     }
 
-    M.clear();
-    fclose( stdin );
-    fclose( stdout );
-    fclose( dict );
-
     return 0;
 }

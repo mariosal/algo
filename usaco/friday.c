@@ -46,8 +46,5 @@ int main() {
     }
     putchar( '\n' );
 
-    fclose( stdin );
-    fclose( stdout );
-
     return 0;
 }

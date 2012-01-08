@@ -23,8 +23,5 @@ int main() {
 
     printf( "%02hd:%02hd:%02hd\n", h, m, s );
 
-    fclose( stdin );
-    fclose( stdout );
-    
     return 0;
 }
