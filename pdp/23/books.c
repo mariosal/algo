@@ -42,7 +42,7 @@ int main() {
     int books, scribes, i, sum;
 
     freopen( "books.in", "r", stdin );
-    //freopen( "books.out", "w", stdout );
+    freopen( "books.out", "w", stdout );
 
     scanf( "%d %d", &books, &scribes );
     pages = ( short* )malloc( books * sizeof( short ) );
