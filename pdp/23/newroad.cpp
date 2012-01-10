@@ -49,7 +49,7 @@ int main() {
     vector< list< ii > > L;
 
     freopen( "newroad.in", "r", stdin );
-    //freopen( "newroad.out", "w", stdout );
+    freopen( "newroad.out", "w", stdout );
 
     scanf( "%hd %d %hd %hd %hd", &V, &E, &K, &s, &t );
     L.resize( V + 1 );
