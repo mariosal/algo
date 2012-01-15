@@ -7,15 +7,15 @@ typedef struct Disjoint {
 } Disjoint;
 
 Disjoint *find( Disjoint *set ) {
-    while ( set->parent != NULL ) {
-        set = set->parent;
+    if ( set->parent != NULL ) {
+        set->parent = find( set->parent );
+        return set->parent;
     }
     return set;
 }
 void unite( Disjoint *a, Disjoint *b ) {
     a = find( a );
     b = find( b );
-
     if ( a == b ) {
         return;
     }
