@@ -7,10 +7,14 @@ using namespace std;
 
 typedef pair< int, int > ii;
 
-vector< int > dijkstra( vector< list< ii > > L, int source ) {
-    int v, d, v2, d2;
+int *dijkstra( vector< list< ii > > L, int source ) {
+    int i, v, v2, d2, *D;
 
-    vector< int > D( L.size(), 987654321 );
+    D = ( int* )malloc( L.size() * sizeof( int ) );
+    for ( i = 0; i < L.size(); i += 1 ) {
+        D[ i ] = 987654321;
+    }
+
     set< ii > S;
     list< ii >::iterator it;
 
@@ -18,7 +22,6 @@ vector< int > dijkstra( vector< list< ii > > L, int source ) {
     S.insert( ii( source, D[ source ] ) );
     while ( !S.empty() ) {
         v = S.begin()->first;
-        d = S.begin()->second;
 
         S.erase( S.begin() );
 
@@ -45,7 +48,6 @@ int main() {
     vector< list< ii > > L;
 
     freopen( "graph.in", "r", stdin );
-    freopen( "dijkstra.out", "w", stdout );
 
     scanf( "%d %d", &V, &E );
     L.resize( V + 1 );

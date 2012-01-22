@@ -37,7 +37,6 @@ int main() {
     vector< list< int > > L;
 
     freopen( "graph.in", "r", stdin );
-    freopen( "dfs.out", "w", stdout );
 
     scanf( "%d %d", &V, &E );
     L.resize( V + 1 );
