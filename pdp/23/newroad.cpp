@@ -44,24 +44,25 @@ int main() {
     short V, K, s, t, v, u;
     int E, w, min;
 
-    vector< int > front;
-    vector< int > back;
-    vector< list< ii > > L;
+    vector< int > front, back;
+    vector< list< ii > > L, L2;
 
     freopen( "newroad.in", "r", stdin );
     freopen( "newroad.out", "w", stdout );
 
     scanf( "%hd %d %hd %hd %hd", &V, &E, &K, &s, &t );
     L.resize( V + 1 );
+    L2.resize( V + 1 );
 
     while ( E-- ) {
         scanf( "%hd %hd %d", &v, &u, &w );
 
         L[ v ].push_back( ii( u, w ) );
+        L2[ u ].push_back( ii( v, w ) );
     }
 
     front = dijkstra( L, s );
-    back = dijkstra( L, t );
+    back = dijkstra( L2, t );
 
     min = front[ t ];
     while ( K-- ) {
