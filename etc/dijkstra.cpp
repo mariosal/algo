@@ -9,14 +9,13 @@ typedef pair< int, int > ii;
 
 int *dijkstra( vector< list< ii > > L, int source ) {
     int i, v, v2, d2, *D;
+    set< ii > S;
+    list< ii >::iterator it;
 
     D = ( int* )malloc( L.size() * sizeof( int ) );
     for ( i = 0; i < L.size(); i += 1 ) {
         D[ i ] = 987654321;
     }
-
-    set< ii > S;
-    list< ii >::iterator it;
 
     D[ source ] = 0;
     S.insert( ii( source, D[ source ] ) );
