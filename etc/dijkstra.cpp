@@ -42,7 +42,6 @@ int *dijkstra( vector< list< ii > > L, int source ) {
 
 int main() {
     int V, E, v, u, w, s, t;
-
     vector< list< ii > > L;
 
     freopen( "graph.in", "r", stdin );
