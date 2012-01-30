@@ -9,39 +9,40 @@ using namespace std;
 typedef pair< int, int > ii;
 
 int dijkstra( vector< list< ii > > L, int source ) {
-    int v, d, v2, d2;
-
-    vector< int > D( L.size(), -1 );
+    int i, v, v2, d2, *D;
     set< ii > S;
     list< ii >::iterator it;
 
-    D[ source ] = 0;
-    S.insert( ii( source, -D[ source ] ) );
-    while ( !S.empty() ) {
-        v = S.begin()->first;
-        d = -S.begin()->second;
+    D = ( int* )malloc( L.size() * sizeof( int ) );
+    for ( i = 0; i < L.size(); i += 1 ) {
+        D[ i ] = -1;
+    }
 
+    D[ source ] = 0;
+    S.insert( ii( -D[ source ], source ) );
+    while ( !S.empty() ) {
+        v = S.begin()->second;
         S.erase( S.begin() );
 
         for ( it = L[ v ].begin(); it != L[ v ].end(); ++it ) {
-            v2 = it->first;
-            d2 = it->second;
+            d2 = it->first;
+            v2 = it->second;
 
-            if ( D[ v2 ] < D[ v ] + d2 ) {
-                if ( D[ v2 ] != -1 ) {
-                    S.erase( ii( v2, -D[ v2 ] ) );
+            if ( D[ v2 ] < d2 + D[ v ] ) {
+                if ( D[ v2 ] != 987654321 ) {
+                    S.erase( ii( -D[ v2 ], v2 ) );
                 }
-                D[ v2 ] = D[ v ] + d2;
-                S.insert( ii( v2, -D[ v2 ] ) );
+                D[ v2 ] = d2 + D[ v ];
+                S.insert( ii( -D[ v2 ], v2 ) );
             }
         }
     }
 
-    return *max_element( D.begin(), D.end() );
+    return *max_element( &D[ 0 ], &D[ L.size() ] );
 }
 
 int main() {
-    int V, E, p, r, w, i;
+    int V, E, v, u, w;
 
     vector< list< ii > > L;
 
@@ -50,10 +51,10 @@ int main() {
 
     scanf( "%d", &V );
     L.resize( V + 1 );
-    for ( i = 0; i < V - 1; i += 1 ) {
-        scanf( "%d %d %d", &p, &r, &w );
+    while ( V-- ) {
+        scanf( "%d %d %d", &v, &u, &w );
 
-        L[ p ].push_back( ii( r, w ) );
+        L[ v ].push_back( ii( w, u ) );
     }
     printf( "%d\n", dijkstra( L, 1 ) );
 

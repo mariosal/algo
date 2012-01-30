@@ -7,32 +7,32 @@ using namespace std;
 
 typedef pair< short, int > ii;
 
-vector< int > dijkstra( vector< list< ii > > L, short source ) {
-    short v, v2;
-    int d, d2;
-
-    vector< int > D( L.size(), 987654321 );
+int *dijkstra( vector< list< ii > > L, int source ) {
+    int i, v, v2, d2, *D;
     set< ii > S;
     list< ii >::iterator it;
 
-    D[ source ] = 0;
-    S.insert( ii( source, D[ source ] ) );
-    while ( !S.empty() ) {
-        v = S.begin()->first;
-        d = S.begin()->second;
+    D = ( int* )malloc( L.size() * sizeof( int ) );
+    for ( i = 0; i < L.size(); i += 1 ) {
+        D[ i ] = 987654321;
+    }
 
+    D[ source ] = 0;
+    S.insert( ii( D[ source ], source ) );
+    while ( !S.empty() ) {
+        v = S.begin()->second;
         S.erase( S.begin() );
 
         for ( it = L[ v ].begin(); it != L[ v ].end(); ++it ) {
-            v2 = it->first;
-            d2 = it->second;
+            d2 = it->first;
+            v2 = it->second;
 
-            if ( D[ v2 ] > D[ v ] + d2 ) {
+            if ( D[ v2 ] > d2 + D[ v ] ) {
                 if ( D[ v2 ] != 987654321 ) {
-                    S.erase( ii( v2, D[ v2 ] ) );
+                    S.erase( ii( D[ v2 ], v2 ) );
                 }
-                D[ v2 ] = D[ v ] + d2;
-                S.insert( ii( v2, D[ v2 ] ) );
+                D[ v2 ] = d2 + D[ v ];
+                S.insert( ii( D[ v2 ], v2 ) );
             }
         }
     }
@@ -42,9 +42,8 @@ vector< int > dijkstra( vector< list< ii > > L, short source ) {
 
 int main() {
     short V, K, s, t, v, u;
-    int E, w, min;
+    int E, w, min, *front, *back;
 
-    vector< int > front, back;
     vector< list< ii > > L, L2;
 
     freopen( "newroad.in", "r", stdin );
@@ -57,8 +56,8 @@ int main() {
     while ( E-- ) {
         scanf( "%hd %hd %d", &v, &u, &w );
 
-        L[ v ].push_back( ii( u, w ) );
-        L2[ u ].push_back( ii( v, w ) );
+        L[ v ].push_back( ii( w, u ) );
+        L2[ u ].push_back( ii( w, v ) );
     }
 
     front = dijkstra( L, s );
