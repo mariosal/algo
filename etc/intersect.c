@@ -7,7 +7,7 @@ typedef struct {
 
 long long direction( point A, point B, point C ) {
     // Cross Product: ( C - A ) × ( B - A )
-    return ( B.x - A.x ) * ( C.y - A.y ) - ( B.y - A.y ) * ( C.x - A.x );
+    return ( long long )( B.x - A.x ) * ( C.y - A.y ) - ( B.y - A.y ) * ( C.x - A.x );
 }
 
 char intersect( point A, point B, point C, point D ) {
