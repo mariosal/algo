@@ -1,15 +1,10 @@
-algo - Solutions to algorithmic problems <https://github.com/mariosal/algo>
+algo - Algorithmic Problems <https://github.com/mariosal/algo>
 
 FOLDERS
-    - codejam/
-        Problems of Google Code Jam <https://code.google.com/codejam/>
-    - etc/
-        Various classical problems, e.g. Shortest Path, MST, Graph Traversal
-    - hellenico/
-        Problems of Hellenic Computing Olympiad <http://hellenico.gr/>
-    - pdp/
-        Problems of Panhellenic Contest in Informatics <http://pdp.gr/>
-    - spoj/
-        Problems of Sphere Online Judje <https://spoj.pl/>
-    - usaco/
-        Problems of USA Computing Olympiad Training <http://train.usaco.org/>
+    - codejam/ <https://code.google.com/codejam/>
+    - hellenico/ <http://hellenico.gr/>
+        -- contest/ <http://hellenico.gr/contest/>
+    - pdp/ <http://pdp.gr/>
+    - spoj/ <https://spoj.pl/>
+        -- oi/ <https://spoj.pl/OI/>
+    - usaco/ <http://train.usaco.org/>
