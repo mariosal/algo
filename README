@@ -3,8 +3,6 @@ algo - Algorithmic Problems <https://github.com/mariosal/algo>
 FOLDERS
     - codejam/ <https://code.google.com/codejam/>
     - hellenico/ <http://hellenico.gr/>
-        -- contest/ <http://hellenico.gr/contest/>
     - pdp/ <http://pdp.gr/>
     - spoj/ <https://spoj.pl/>
-        -- oi/ <https://spoj.pl/OI/>
     - usaco/ <http://train.usaco.org/>
