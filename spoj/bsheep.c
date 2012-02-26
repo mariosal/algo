@@ -11,22 +11,28 @@ point min;
 long long cross( point a, point b, point c ) {
     return ( long long )( b.x - a.x ) * ( c.y - a.y ) - ( b.y - a.y ) * ( c.x - a.x );
 }
-int distance2( point a, point b ) {
-    return ( a.x - b.x ) * ( a.x - b.x ) + ( a.y - b.y ) * ( a.y - b.y );
+long long distance2( point a, point b ) {
+    return ( long long )( a.x - b.x ) * ( a.x - b.x ) + ( a.y - b.y ) * ( a.y - b.y );
 }
 
 int compare( const void *a, const void *b ) {
-    int wise, d, d2;
+    long long wise, d, d2;
 
-    wise = cross( min, *( point* )a, *( point* )b ) * -1;
-    if ( wise ) {
-        return wise;
+    wise = cross( min, *( point* )a, *( point* )b );
+    if ( wise > 0 ) {
+        return -1;
+    }
+    if ( wise < 0 ) {
+        return 1;
     }
 
     d = distance2( min, *( point* )a );
     d2 = distance2( min, *( point* )b );
-    if ( d - d2 ) {
-        return d - d2;
+    if ( d < d2 ) {
+        return -1;
+    }
+    if ( d > d2 ) {
+        return 1;
     }
 
     return ( ( point* )a )->id - ( ( point* )b )->id;
@@ -60,7 +66,7 @@ int main() {
                 continue;
             }
 
-            while ( m >= 2 && cross( hull[ m - 2 ], hull[ m - 1 ], p[ i ] ) <= 0 ) {
+            while ( m >= 2 && ( long long )cross( hull[ m - 2 ], hull[ m - 1 ], p[ i ] ) <= 0 ) {
                 m -= 1;
             }
 
@@ -70,7 +76,7 @@ int main() {
 
         circ = 0;
         for ( i = 0; i < m; i += 1 ) {
-            circ += sqrt( distance2( hull[ i ], hull[ ( i + 1 ) % m ] ) );
+            circ += sqrt( ( long long )distance2( hull[ i ], hull[ ( i + 1 ) % m ] ) );
         }
 
         printf( "%.2lf\n", circ );
