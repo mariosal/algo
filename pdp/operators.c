@@ -23,6 +23,9 @@ int main() {
         if ( abs( min[ 0 ] + min[ 1 ] ) > abs( a[ i ] + a[ j ] ) ) {
             min[ 0 ] = a[ i ];
             min[ 1 ] = a[ j ];
+            if ( a[ i ] + a[ j ] == 0 ) {
+                break;
+            }
         }
         if ( a[ i ] + a[ j ] > 0 ) {
             j -= 1;
