@@ -3,21 +3,21 @@
 #include <math.h>
 
 typedef struct {
-    int x, y, id;
+    short x, y;
+    int id;
 } point;
 
 point min;
 
-long long cross( point a, point b, point c ) {
-    return ( long long )( b.x - a.x ) * ( c.y - a.y ) - ( b.y - a.y ) * ( c.x - a.x );
+int cross( point a, point b, point c ) {
+    return ( int )( b.x - a.x ) * ( c.y - a.y ) - ( b.y - a.y ) * ( c.x - a.x );
 }
 int distance2( point a, point b ) {
-    return ( a.x - b.x ) * ( a.x - b.x ) + ( a.y - b.y ) * ( a.y - b.y );
+    return ( int )( a.x - b.x ) * ( a.x - b.x ) + ( a.y - b.y ) * ( a.y - b.y );
 }
 
 int compare( const void *a, const void *b ) {
-    int d, d2;
-    long long wise;
+    int d, d2, wise;
 
     wise = cross( min, *( point* )a, *( point* )b );
     if ( wise > 0 ) {
@@ -40,18 +40,19 @@ int compare( const void *a, const void *b ) {
 }
 
 int main() {
-    int t, n, m, i;
-    double circ;
+    short t;
+    int n, m, i;
+    float circ;
     point *p, *hull;
 
-    scanf( "%d", &t );
+    scanf( "%hd", &t );
     while ( t-- ) {
         scanf( "%d", &n );
         p = ( point* )malloc( n * sizeof( point ) );
         hull = ( point* )malloc( n * sizeof( point ) );
 
         for ( i = 0; i < n; i += 1 ) {
-            scanf( "%d %d", &p[ i ].x, &p[ i ].y );
+            scanf( "%hd %hd", &p[ i ].x, &p[ i ].y );
             p[ i ].id = i + 1;
 
             if ( !i || min.y > p[ i ].y || ( min.y == p[ i ].y && min.x > p[ i ].x ) ) {
@@ -60,7 +61,6 @@ int main() {
         }
 
         qsort( p, n, sizeof( point ), compare );
-
         m = 0;
         for ( i = 0; i < n; i += 1 ) {
             if ( i && p[ i ].x == p[ i - 1 ].x && p[ i ].y == p[ i - 1 ].y ) {
@@ -80,13 +80,16 @@ int main() {
             circ += sqrt( distance2( hull[ i ], hull[ ( i + 1 ) % m ] ) );
         }
 
-        printf( "%.2lf\n", circ );
+        printf( "%.2f\n", circ );
         for ( i = 0; i < m; i += 1 ) {
             printf( "%d%c", hull[ i ].id, i + 1 == m ? '\n' : ' ' );
         }
         if ( t ) {
             putchar( '\n' );
         }
+
+        free( p );
+        free( hull );
     }
 
     return 0;
