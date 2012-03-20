@@ -18,7 +18,7 @@ int main() {
     int n, i, j, max;
 
     freopen( "prevdiv.in", "r", stdin );
-    //freopen( "prevdiv.out", "w", stdout );
+    freopen( "prevdiv.out", "w", stdout );
 
     scanf( "%d", &n );
     i = 1;
