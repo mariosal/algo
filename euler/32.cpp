@@ -4,8 +4,8 @@
 
 using namespace std;
 
-long long toi( char *a, char from, char to ) {
-    long long n;
+int toi( char *a, char from, char to ) {
+    int n;
 
     n = 0;
     while ( from <= to ) {
