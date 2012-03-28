@@ -29,7 +29,7 @@ int dijkstra( vector< list< ii > > L, int source ) {
             v2 = it->second;
 
             if ( D[ v2 ] < d2 + D[ v ] ) {
-                if ( D[ v2 ] != 987654321 ) {
+                if ( D[ v2 ] != -1 ) {
                     S.erase( ii( -D[ v2 ], v2 ) );
                 }
                 D[ v2 ] = d2 + D[ v ];
