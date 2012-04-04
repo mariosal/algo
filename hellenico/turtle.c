@@ -19,8 +19,8 @@ int main() {
     int i, maxSize, **best;
     node *item;
 
-    //freopen( "turtle.in", "r", stdin );
-    //freopen( "turtle.out", "w", stdout );
+    freopen( "turtle.in", "r", stdin );
+    freopen( "turtle.out", "w", stdout );
 
     scanf( "%hd %hu", &n, &size );
     maxSize = size;
