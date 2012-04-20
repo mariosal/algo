@@ -4,11 +4,9 @@
 
 int rotate( int n ) {
     char len;
-    int temp;
 
-    temp = n;
     len = floor( log10( n ) ) + 1;
-    return ( temp / 10 ) + ( n % 10 ) * pow( 10, len - 1 );
+    return ( n / 10 ) + ( n % 10 ) * pow( 10, len - 1 );
 }
 
 int main() {
