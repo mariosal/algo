@@ -1,6 +1,6 @@
-algo - Algorithmic Problems <https://github.com/mariosal/algo>
+# algo - Algorithmic Problems <https://github.com/mariosal/algo>
 
-FOLDERS
+## FOLDERS
     - etc/ Classical Problems
     - codejam/ <https://code.google.com/codejam/>
     - euler/ <https://projecteuler.net/>
