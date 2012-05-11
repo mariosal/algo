@@ -1,10 +1,7 @@
-# algo - Algorithmic Problems <https://github.com/mariosal/algo>
-
-## FOLDERS
-    - etc/ Classical Problems
-    - codejam/ <https://code.google.com/codejam/>
-    - euler/ <https://projecteuler.net/>
-    - hellenico/ <http://hellenico.gr/>
-    - pdp/ <http://pdp.gr/>
-    - spoj/ <https://spoj.pl/>
-    - usaco/ <http://train.usaco.org/>
+- etc/ Classical Problems
+- codejam/ <https://code.google.com/codejam/>
+- euler/ <https://projecteuler.net/>
+- hellenico/ <http://hellenico.gr/>
+- pdp/ <http://pdp.gr/>
+- spoj/ <https://spoj.pl/>
+- usaco/ <http://train.usaco.org/>
