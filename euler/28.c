@@ -16,9 +16,9 @@ int main() {
     sum = 1;
     for ( i = 3; i <= N; i += 2 ) {
         sum += i * i;
-        sum += i * i + -1 * ( i - 1 );
-        sum += i * i + -2 * ( i - 1 );
-        sum += i * i + -3 * ( i - 1 );
+        sum += i * i - 1 * ( i - 1 );
+        sum += i * i - 2 * ( i - 1 );
+        sum += i * i - 3 * ( i - 1 );
     }
     printf( "%d\n", sum );
 
