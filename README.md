@@ -1,7 +1,9 @@
 - etc/ Classical Problems
+- codeforces/ <http://codeforces.com/>
 - codejam/ <https://code.google.com/codejam/>
 - euler/ <https://projecteuler.net/>
 - hellenico/ <http://hellenico.gr/>
 - pdp/ <http://pdp.gr/>
 - spoj/ <https://spoj.pl/>
+- topcoder/ <http://community.topcoder.com/tc?module=ProblemArchive>
 - usaco/ <http://train.usaco.org/>
