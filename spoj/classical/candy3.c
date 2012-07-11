@@ -1,25 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int sum, i, N, T;
-    long long j;
+  int sum, i, N, T;
+  long long j;
 
-    //freopen( "in.txt", "r", stdin );
+  //freopen( "in.txt", "r", stdin );
 
-    scanf( "%d", &T );
-    while ( T-- ) {
-        scanf( "%d", &N );
-        for ( i = sum = 0; i < N; ++i, sum = ( sum + j ) % N ) {
-            scanf( "%lld", &j );
-        }
-
-        if ( sum ) {
-            puts( "NO" );
-        }
-        else {
-            puts( "YES" );
-        }
+  scanf( "%d", &T );
+  while ( T-- ) {
+    scanf( "%d", &N );
+    for ( i = sum = 0; i < N; ++i, sum = ( sum + j ) % N ) {
+      scanf( "%lld", &j );
     }
 
-    return 0;
+    if ( sum ) {
+      puts( "NO" );
+    }
+    else {
+      puts( "YES" );
+    }
+  }
+
+  return 0;
 }

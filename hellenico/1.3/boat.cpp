@@ -6,33 +6,33 @@
 using namespace std;
 
 int main() {
-    int i, N, in, o;
-    char car[ 43 ];
-    vector< string > V;
+  int i, N, in, o;
+  char car[ 43 ];
+  vector< string > V;
 
-    freopen( "boat.in", "r", stdin );
-    freopen( "boat.out", "w", stdout );
+  freopen( "boat.in", "r", stdin );
+  freopen( "boat.out", "w", stdout );
 
-    scanf( "%d", &N );
+  scanf( "%d", &N );
 
-    while ( N-- ) {
-        scanf( "%d %d", &o, &in );
+  while ( N-- ) {
+    scanf( "%d %d", &o, &in );
 
-        while ( o-- ) {
-            V.erase( V.end() );
-        }
-
-        while ( in-- ) {
-            scanf( "%s", &car );
-            V.push_back( car );
-        }
+    while ( o-- ) {
+      V.erase( V.end() );
     }
 
-    sort( V.begin(), V.end() );
-
-    for ( i = 0; i < V.size(); i += 1 ) {
-        printf( "%s\n", V[ i ].c_str() );
+    while ( in-- ) {
+      scanf( "%s", &car );
+      V.push_back( car );
     }
+  }
 
-    return 0;
+  sort( V.begin(), V.end() );
+
+  for ( i = 0; i < V.size(); i += 1 ) {
+    printf( "%s\n", V[ i ].c_str() );
+  }
+
+  return 0;
 }

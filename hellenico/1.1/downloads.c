@@ -1,24 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    short N;
-    int kb, k, t;
-    float time;
+  short N;
+  int kb, k, t;
+  float time;
 
-    freopen( "downloads.in", "r", stdin );
-    freopen( "downloads.out", "w", stdout );
+  freopen( "downloads.in", "r", stdin );
+  freopen( "downloads.out", "w", stdout );
 
-    scanf( "%hd", &N );
+  scanf( "%hd", &N );
 
-    while ( N-- ) {
-        scanf( "%d %d", &k, &t );
+  while ( N-- ) {
+    scanf( "%d %d", &k, &t );
 
-        kb += k;
-        time += ( t - time ) * k / kb;
-    }
+    kb += k;
+    time += ( t - time ) * k / kb;
+  }
 
-    printf( "%.0f\n", time );
+  printf( "%.0f\n", time );
 
-    return 0;
+  return 0;
 }
 

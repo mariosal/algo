@@ -1,18 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int N, Pi, once;
-    
-    scanf( "%d", &N );
+  int N, Pi, once;
+  
+  scanf( "%d", &N );
 
-    once = 0;
-    while ( N-- ) {
-        scanf( "%d", &Pi );
+  once = 0;
+  while ( N-- ) {
+    scanf( "%d", &Pi );
 
-        once = once ^ Pi;
-    }
+    once = once ^ Pi;
+  }
 
-    printf( "%d\n", once );
+  printf( "%d\n", once );
 
-    return 0;
+  return 0;
 }
