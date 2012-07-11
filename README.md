@@ -4,6 +4,6 @@
 - euler/ <https://projecteuler.net/>
 - hellenico/ <http://hellenico.gr/>
 - pdp/ <http://pdp.gr/>
+- poj/ <http://poj.org/>
 - spoj/ <https://spoj.pl/>
-- topcoder/ <http://community.topcoder.com/tc?module=ProblemArchive>
 - usaco/ <http://train.usaco.org/>
