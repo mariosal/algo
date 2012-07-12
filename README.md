@@ -2,6 +2,7 @@
 - codejam/ <https://code.google.com/codejam/>
 - euler/ <https://projecteuler.net/>
 - hellenico/ <http://hellenico.gr/>
+- hellenico/contest <http://hellenico.gr/contest/>
 - pdp/ <http://pdp.gr/>
 - poj/ <http://poj.org/>
 - spoj/ <https://spoj.pl/>
