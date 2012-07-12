@@ -1,4 +1,3 @@
-- etc/ Classical Problems
 - codeforces/ <http://codeforces.com/>
 - codejam/ <https://code.google.com/codejam/>
 - euler/ <https://projecteuler.net/>
