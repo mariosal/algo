@@ -58,12 +58,6 @@ int main() {
     clocks[ i ] = dummy;
   }
 
-  for ( i = 9; i > 0; --i ) {
-    for ( j = 0; j < 3; ++j ) {
-      best.push_back( i );
-    }
-  }
-
   for ( sol[ 0 ] = 0; sol[ 0 ] < 4; ++sol[ 0 ] ) {
     for ( sol[ 1 ] = 0; sol[ 1 ] < 4; ++sol[ 1 ] ) {
       for ( sol[ 2 ] = 0; sol[ 2 ] < 4; ++sol[ 2 ] ) {
@@ -75,7 +69,7 @@ int main() {
                   for ( sol[ 8 ] = 0; sol[ 8 ] < 4; ++sol[ 8 ] ) {
                     if ( check( sol, clocks ) ) {
                       possible = printify( sol );
-                      if ( possible.size() < best.size() ) {
+                      if ( possible.size() <= best.size() ) {
                         best = possible;
                       }
                     }
