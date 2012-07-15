@@ -42,9 +42,16 @@ void unite( short a, short b ) {
   }
 }
 
-long long kruskal( Edge *E, int m ) {
+long long kruskal( Edge *E, int n, int m ) {
   int i;
   long long sum;
+
+  sets = new Disjoint[ n ];
+  for ( i = 0; i < n; ++i ) {
+    sets[ i ] = ( Disjoint ) {
+      i, 0
+    };
+  }
 
   sum = 0;
   sort( E, E + m );
@@ -55,6 +62,8 @@ long long kruskal( Edge *E, int m ) {
     }
   }
 
+  delete[] sets;
+
   return sum;
 }
 
@@ -64,13 +73,6 @@ int main() {
   Edge *E;
 
   scanf( "%hd %d", &n, &m );
-
-  sets = new Disjoint[ n ];
-  for ( i = 0; i < n; ++i ) {
-    sets[ i ] = ( Disjoint ) {
-      i, 0
-    };
-  }
 
   E = new Edge[ m ];
   for ( i = 0; i < m; ++i ) {
@@ -83,7 +85,7 @@ int main() {
     };
   }
 
-  printf( "%lld\n", kruskal( E, m ) );
+  printf( "%lld\n", kruskal( E, n, m ) );
 
   return 0;
 }
