@@ -7,8 +7,6 @@ int main() {
   int i, j, n, *sums, ans;
   pair< int, int > *buckets;
 
-  freopen( "oddeven.out", "w", stdout );
-
   scanf( "%d", &n );
   sums = new int[ n + 1 ];
   buckets = new pair< int, int >[ 2 * n + 1 ];
