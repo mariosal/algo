@@ -48,7 +48,7 @@ ii query( ii *heap, int k, int s, int t, int i, int j ) {
   return ans;
 }
 void update( ii *heap, int k, int s, int t, int pos, int val ) {
-  if ( s == t && s == pos ) {
+  if ( s == t ) {
     heap[ k ] = make_pair( val, 0 );
   }
   else {
