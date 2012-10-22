@@ -61,7 +61,7 @@ int main() {
   }
 
   for ( i = 0; i < n; ++i ) {
-    printf( "%c%s", fromWhite[ i ] && fromBlack[ i ] ? '1' : '0', i == n - 1 ? "\n" : " " );
+    printf( "%c%c", fromWhite[ i ] && fromBlack[ i ] ? '1' : '0', i == n - 1 ? '\n' : ' ' );
   }
 
   return 0;
