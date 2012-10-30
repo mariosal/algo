@@ -25,9 +25,6 @@ bool canMove( double *p, int n, int d, double t ) {
 double bSearch( double *p, int n, int d, double i, double j ) {
   double k = ( i + j ) / 2;
 
-  if ( i > j ) {
-    return 0;
-  }
   if ( fabs( i - j ) < 1e-2 ) {
     return k;
   }
