@@ -44,8 +44,8 @@ int main() {
   short i;
   int minCoord, maxCoord;
 
-  freopen( "rebels.in", "r", stdin );
-  freopen( "rebels.out", "w", stdout );
+  //freopen( "rebels.in", "r", stdin );
+  //freopen( "rebels.out", "w", stdout );
 
   scanf( "%*c %hd", &n );
   rebel = new int[ n ];

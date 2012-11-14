@@ -9,7 +9,7 @@ double bSearch( double p, double r ) {
   int i;
   double diff, q = ( p + r ) / 2;
 
-  if ( r - p < 1e-6 ) {
+  if ( r - p < 1e-8 ) {
     return q;
   }
 

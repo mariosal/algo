@@ -19,11 +19,11 @@ int main() {
   else if ( red % 2 ) {
     printf( "**\n" );
   }
-  else if ( red % 2 == 0 ) {
-    printf( "***\n" );
-  }
   else if ( red == 0 ) {
     printf( "****\n" );
+  }
+  else if ( red % 2 == 0 ) {
+    printf( "***\n" );
   }
 
   return 0;
