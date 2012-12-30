@@ -22,7 +22,7 @@ int main() {
   scanf("%d", &t);
   while (t--) {
     scanf("%d %d %d", &a, &b, &c);
-    printf("%.6lf\n", BinarySearch(a, b, c, 0, 100000));
+    printf("%.6lf\n", BinarySearch(a, b, c, 0, c));
   }
 
   return 0;
