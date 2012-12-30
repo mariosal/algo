@@ -24,9 +24,8 @@ int main() {
     for (j = i + 1; j < n; ++j) {
       if (s[i] == s[j]) {
         w[i % 2][j] = w[(i + 1) % 2][j - 1];
-      }
-      else {
-        w[i % 2][j] = 1 + min(w[i % 2][j - 1], w[(i + 1) % 2][j] );
+      } else {
+        w[i % 2][j] = 1 + min(w[i % 2][j - 1], w[(i + 1) % 2][j]);
       }
     }
   }
