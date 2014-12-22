@@ -6,7 +6,7 @@
 #include <stdio.h>
 long long base( short N, short base ) {
   long long i = 0, j = 1;
-  
+
   while ( N > 0 ) {
     i += ( N % base ) * j;
     N /= base;
@@ -16,7 +16,7 @@ long long base( short N, short base ) {
 }
 long long reverse( long long N ) {
   long long i = 0;
-  
+
   while ( N > 0 ) {
     i *= 10;
     i += N % 10;

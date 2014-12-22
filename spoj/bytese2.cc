@@ -28,7 +28,7 @@ int main() {
       }
       M.erase( it );
     }
-    
+
     printf( "%d\n", maxDance );
   }
 

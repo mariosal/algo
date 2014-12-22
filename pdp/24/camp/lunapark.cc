@@ -19,7 +19,7 @@ int w( int i, int j ) {
   if ( memo[ i ][ j ] != -1 ) {
     return memo[ i ][ j ];
   }
-  
+
   memo[ i ][ j ] = w( i + 1, j + 1 );
   if ( games[ i ].left <= j ) {
     memo[ i ][ j ] = max( memo[ i ][ j ], w( i + games[ i ].right + 1, games[ i ].right ) + games[ i ].cost );
@@ -27,7 +27,7 @@ int w( int i, int j ) {
   return memo[ i ][ j ];
 }
 
-int main() { 
+int main() {
   int i, j;
 
   freopen( "lunapark.in", "r", stdin );

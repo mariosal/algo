@@ -12,7 +12,7 @@ void init( int *a, int k, int b, int e ) {
   else {
     init( a, 2 * k, b, ( b + e ) / 2 );
     init( a, 2 * k + 1, ( b + e ) / 2 + 1, e );
-    h[ k ] = max( h[ 2 * k ], h[ 2 * k + 1 ] ); 
+    h[ k ] = max( h[ 2 * k ], h[ 2 * k + 1 ] );
   }
 }
 int query( int i, int j, int k, int b, int e ) {

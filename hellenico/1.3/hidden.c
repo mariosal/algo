@@ -3,7 +3,7 @@
 int main() {
   short cmp;
   int p = 1, r = getN(), q;
-  
+
   do {
     q = ( p + r ) / 2;
 

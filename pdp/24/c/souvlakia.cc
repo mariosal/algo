@@ -79,7 +79,7 @@ int main() {
   --a;
   --b;
   --c;
-  
+
   d[ 0 ] = dijkstra( G, n, a );
   d[ 1 ] = dijkstra( G, n, b );
   d[ 2 ] = dijkstra( G, n, c );

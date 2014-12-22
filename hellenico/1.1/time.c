@@ -5,13 +5,13 @@ int main() {
 
   freopen( "time.in", "r", stdin );
   freopen( "time.out", "w", stdout );
-  
+
   scanf( "%hd:%hd:%hd", &h, &m, &s );
-  
+
   s *= 2;
   m *= 2;
   h *= 2;
-  
+
   if ( s > 59 ) {
     m += 1;
     s -= 60;

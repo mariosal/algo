@@ -9,7 +9,7 @@ int main() {
 
   scanf("%hd", &n);
 
-  s = new char[n]; 
+  s = new char[n];
   scanf("%s", s);
 
   w = new short*[2];

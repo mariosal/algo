@@ -2,7 +2,7 @@
 
 int main() {
   int N, Pi, once;
-  
+
   scanf( "%d", &N );
 
   once = 0;

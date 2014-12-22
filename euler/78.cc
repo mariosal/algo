@@ -8,7 +8,7 @@ int main() {
   for ( i = 0; i <= N; ++i ) {
     w[ i ] = 0;
   }
-  
+
   w[ 0 ] = 1;
   for ( i = 1; i < N; ++i ) {
     for ( j = i; j <= N; ++j ) {

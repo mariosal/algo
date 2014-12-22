@@ -37,7 +37,7 @@ int main() {
   for ( i = 0; i < n; ++i ) {
     dfs( G, i, vis, T );
   }
-  
+
   for ( rit = T.rbegin(); rit != T.rend(); ++rit ) {
     next = rit;
     ++next;

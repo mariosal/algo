@@ -8,7 +8,7 @@ int main() {
   for ( i = 0; i <= 200; ++i ) {
     w[ i ] = 0;
   }
-  
+
   w[ 0 ] = 1;
   for ( i = 0; i < 8; ++i ) {
     for ( j = coins[ i ]; j <= 200; ++j ) {

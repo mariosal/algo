@@ -19,7 +19,7 @@ void dfs(short u) {
   short v;
   list<Edge>::iterator it;
   stack<short> s;
-  
+
   d[u] = l[u] = 0;
   s.push(u);
   while (!s.empty()) {

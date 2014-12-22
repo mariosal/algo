@@ -6,7 +6,7 @@ using namespace std;
 int main() {
   char i;
   short A, D, min, j, array[ 11 ];
-  
+
   //freopen( "in.txt", "r", stdin );
 
   while ( 1 ) {

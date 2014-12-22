@@ -12,7 +12,7 @@ int main() {
   for ( i = 0; i <= 200000; ++i ) {
     a[ i ] = 0;
   }
-  
+
   scanf( "%d", &n );
   for ( i = 0; i < n; ++i ) {
     scanf( "%d %d", &j, &k );

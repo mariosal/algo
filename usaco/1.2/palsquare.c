@@ -24,7 +24,7 @@ char *base( long long N, short base ) {
   char i;
   char *A = ( char* )malloc( 18 );
   short j = 0;
-  
+
   while ( N > 0 ) {
     if ( N % base < 10 ) {
       i = N % base + '0';

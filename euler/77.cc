@@ -29,7 +29,7 @@ int main() {
   for ( i = 0; i <= N; ++i ) {
     w[ i ] = 0;
   }
-  
+
   w[ 0 ] = 1;
   for ( i = 0; i < cntPrime; ++i ) {
     for ( j = prime[ i ]; j <= N; ++j ) {

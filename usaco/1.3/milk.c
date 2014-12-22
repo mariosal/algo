@@ -33,7 +33,7 @@ int main() {
       amount += N - amount;
     }
   }
-  
+
   printf( "%d\n", cost );
   return 0;
 }

@@ -39,7 +39,7 @@ int main() {
 
   freopen( "caves.in", "r", stdin );
   freopen( "caves.out", "w", stdout );
-  
+
   scanf( "%d %d", &V, &E );
   caves = ( Disjoint* )malloc( ( V + 200000 + 1 ) * sizeof( Disjoint ) );
 

@@ -28,7 +28,7 @@ int main() {
 
         changes = 0;
         for(l = a.begin(); l != a.end(); ++l) {
-          changes += l->second; 
+          changes += l->second;
           if (i <= l->first.first && l->first.first < i + k &&
               j <= l->first.second && l->first.second < j + m / k) {
             --changes;

@@ -4,7 +4,7 @@
  * center: 1
  * upright: n^2
  * upleft: upright -( n -1 )
- * downleft: upleft -( n -1 ) 
+ * downleft: upleft -( n -1 )
  * downright: downleft -( n -1 )
  */
 

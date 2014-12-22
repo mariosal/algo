@@ -62,6 +62,6 @@ int main() {
     }
   }
   printf( "%lld\n", tSearch( minCoord, maxCoord ) );
-  
+
   return 0;
 }
