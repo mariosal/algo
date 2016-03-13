@@ -1,52 +1,49 @@
 /*
   ID: mariosa1
-  LANG: C
   TASK: beads
+  LANG: C++11
 */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+
+#ifdef _LP64
+#define __PRIS_PREFIX "z"
+#else
+#define __PRIS_PREFIX
+#endif
+
+#define PRIuS __PRIS_PREFIX "u"
 
 int main() {
-  char color, *beads, *cat;
-  short n, i, j, q, current, max;
+  freopen("beads.in", "r", stdin);
+  freopen("beads.out", "w", stdout);
 
-  freopen( "beads.in", "r", stdin );
-  freopen( "beads.out", "w", stdout );
+  size_t num_beads;
+  scanf("%" PRIuS, &num_beads);
 
-  scanf( "%hd", &n );
-  beads = ( char* )malloc( n + 1 );
-  cat = ( char* )malloc( 2 * n + 1 );
-  scanf( "%s", beads );
+  char* beads = new char[num_beads + 1];
+  scanf("%s", beads);
 
-  max = 0;
-  strncpy( cat, beads, n );
-  strncat( cat, beads, n );
-  for ( i = 0; i < n; i += 1 ) {
-    color = cat[ i ];
-    if ( color == 'w' ) {
-      q = 0;
-    }
-    else {
-      q = 1;
-    }
+  char* cat = new char[2 * num_beads + 1];
+  strcpy(cat, beads);
+  strcat(cat, beads);
 
-    j = i;
-    current = 0;
-    for ( ; q <= 2; q += 1 ) {
-      while ( j < n + i && ( cat[ j ] == color || cat[ j ] == 'w'  ) ) {
-        current += 1;
-        j += 1;
+  size_t max_beads = 0;
+  for (size_t i = 0; i < num_beads; ++i) {
+    size_t current_beads = 0;
+    size_t pivot = i;
+    for (int j = cat[i] != 'w'; j < 3; ++j) {
+      char color = cat[pivot];
+      while (pivot < num_beads + i && (cat[pivot] == color ||
+                                       cat[pivot] == 'w')) {
+        ++current_beads;
+        ++pivot;
       }
-      color = cat[ j ];
     }
 
-    if ( max < current ) {
-      max = current;
-    }
+    max_beads = std::max(max_beads, current_beads);
   }
-
-  printf( "%hd\n", max );
-
+  printf("%" PRIuS "\n", max_beads);
   return 0;
 }
