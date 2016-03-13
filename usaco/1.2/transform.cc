@@ -1,113 +1,110 @@
 /*
   ID: mariosa1
-  LANG: C++
   TASK: transform
+  LANG: C++11
 */
 #include <cstdio>
-#include <cstdlib>
 #include <cstring>
-#include <algorithm>
 
-using namespace std;
+#ifdef _LP64
+#define __PRIS_PREFIX "z"
+#else
+#define __PRIS_PREFIX
+#endif
 
-typedef struct {
-  short n;
-  char **b;
-} Board;
+#define PRIuS __PRIS_PREFIX "u"
 
-void aloc( Board *a ) {
-  char i;
-
-  a->b = ( char** )malloc( a->n * sizeof( char* ) );
-  for ( i = 0; i < a->n; i += 1 ) {
-    a->b[ i ] = ( char* )malloc( a->n );
-  }
-}
-void read( Board *a ) {
-  char i;
-  for ( i = 0; i < a->n; i += 1 ) {
-    scanf( "%s", a->b[ i ] );
-  }
-}
-
-Board rotate( Board a ) {
-  char i, j;
-  Board b;
-
-  b.n = a.n;
-  aloc( &b );
-  for ( i = 0; i < a.n; i += 1 ) {
-    for ( j = 0; j < a.n; j += 1 ) {
-      b.b[ j ][ a.n - i - 1 ] = a.b[ i ][ j ];
+class Board {
+ public:
+  Board(size_t size) : size_(size), tiles_(new char*[size_]) {
+    for (size_t i = 0; i < size_; ++i) {
+      tiles_[i] = new char[size_ + 1];
     }
   }
-  return b;
-}
-Board reflect( Board a ) {
-  char i, j;
-  Board b;
-
-  b.n = a.n;
-  aloc( &b );
-  for ( i = 0; i < a.n; i += 1 ) {
-    for ( j = 0; j < a.n; j += 1 ) {
-      b.b[ i ][ a.n - j - 1 ] = a.b[ i ][ j ];
+  Board(const Board& board) : size_(board.size_), tiles_(new char*[size_]) {
+    for (size_t i = 0; i < size_; ++i) {
+      tiles_[i] = new char[size_ + 1];
+      strcpy(tiles_[i], board.tiles_[i]);
     }
   }
-  return b;
-}
+  ~Board() {
+    for (size_t i = 0; i < size_; ++i) {
+      delete tiles_[i];
+    }
+    delete[] tiles_;
+  }
+  bool operator==(const Board& board) const {
+    if (size_ == board.size_) {
+      for (size_t i = 0; i < size_; ++i) {
+        if (strcmp(tiles_[i], board.tiles_[i]) != 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+    return false;
+  }
 
-bool operator == ( Board a, Board b ) {
-  char i;
-  for ( i = 0; i < a.n; i += 1 ) {
-    if ( strcmp( a.b[ i ], b.b[ i ] ) ) {
-      return false;
+  void Read() {
+    for (size_t i = 0; i < size_; ++i) {
+      scanf("%s", tiles_[i]);
     }
   }
-  return true;
-}
+  Board Reflect() const {
+    Board ret(size_);
+    for (size_t i = 0; i < size_; ++i) {
+      for (size_t j = 0; j < size_; ++j) {
+        ret.tiles_[i][size_ - j - 1] = tiles_[i][j];
+      }
+    }
+    return ret;
+  }
+  Board Rotate() const {
+    Board ret(size_);
+    for (size_t i = 0; i < size_; ++i) {
+      for (size_t j = 0; j < size_; ++j) {
+        ret.tiles_[j][size_ - i - 1] = tiles_[i][j];
+      }
+    }
+    return ret;
+  }
+
+ private:
+  size_t size_;
+  char** tiles_;
+};
 
 int main() {
-  char i, change;
-  Board a, b;
+  freopen("transform.in", "r", stdin);
+  freopen("transform.out", "w", stdout);
 
-  freopen( "transform.in", "r", stdin );
-  freopen( "transform.out", "w", stdout );
+  size_t size;
+  scanf("%" PRIuS, &size);
 
-  scanf( "%hd", &a.n );
-  b.n = a.n;
+  Board a(size);
+  a.Read();
 
-  aloc( &a );
-  aloc( &b );
+  Board b(size);
+  b.Read();
 
-  read( &a );
-  read( &b );
-
-  if ( rotate( a ) == b ) {
-    change = 1;
-  }
-  else if ( rotate( rotate( a ) ) == b ) {
-    change = 2;
-  }
-  else if ( rotate( rotate( rotate( a ) ) ) == b ) {
-    change = 3;
-  }
-  else if ( reflect( a ) == b ) {
-    change = 4;
-  }
-  else if ( reflect( rotate( a ) ) == b ||
-        reflect( rotate( rotate( a ) ) ) == b ||
-        reflect( rotate( rotate( rotate( a ) ) ) ) == b ) {
-    change = 5;
-  }
-  else if ( a == b ) {
-    change = 6;
-  }
-  else {
-    change = 7;
+  int id;
+  if (a.Rotate() == b) {
+    id = 1;
+  } else if (a.Rotate().Rotate() == b) {
+    id = 2;
+  } else if (a.Rotate().Rotate().Rotate() == b) {
+    id = 3;
+  } else if (a.Reflect() == b) {
+    id = 4;
+  } else if (a.Rotate().Reflect() == b || a.Rotate().Rotate().Reflect() == b ||
+             a.Rotate().Rotate().Rotate().Reflect() == b) {
+    id = 5;
+  } else if (a == b) {
+    id = 6;
+  } else {
+    id = 7;
   }
 
-  printf( "%d\n", change );
-
+  printf("%d\n", id);
   return 0;
 }
