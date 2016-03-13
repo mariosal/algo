@@ -1,53 +1,54 @@
 /*
   ID: mariosa1
-  LANG: C++
   TASK: namenum
+  LANG: C++11
 */
 #include <cstdio>
+#include <cinttypes>
 #include <map>
 
-using namespace std;
+static int64_t Hash(const std::map<char, int>& map, const char* str) {
+  int64_t ret = 0;
+  for (size_t i = 0; str[i] != '\0'; ++i) {
+    ret = 10 * ret + map.at(str[i]);
+  }
+  return ret;
+}
 
 int main() {
-  bool printed;
-  char j, s[ 13 ];
-  short i;
-  long long n, q;
-  FILE *dict;
-  map< char, char > M;
+  freopen("namenum.in", "r", stdin);
+  freopen("namenum.out", "w", stdout);
 
-  freopen( "namenum.in", "r", stdin );
-  freopen( "namenum.out", "w", stdout );
-  dict = fopen( "dict.txt", "r" );
+  int64_t num;
+  scanf("%" PRId64, &num);
 
-  M[ 'A' ] = M[ 'B' ] = M[ 'C' ] = 2;
-  M[ 'D' ] = M[ 'E' ] = M[ 'F' ] = 3;
-  M[ 'G' ] = M[ 'H' ] = M[ 'I' ] = 4;
-  M[ 'J' ] = M[ 'K' ] = M[ 'L' ] = 5;
-  M[ 'M' ] = M[ 'N' ] = M[ 'O' ] = 6;
-  M[ 'P' ] = M[ 'R' ] = M[ 'S' ] = 7;
-  M[ 'T' ] = M[ 'U' ] = M[ 'V' ] = 8;
-  M[ 'W' ] = M[ 'X' ] = M[ 'Y' ] = 9;
+  FILE* dictionary = fopen("dict.txt", "r");
 
-  scanf( "%lld", &n );
+  std::map<char, int> map;
+  map['A'] = map['B'] = map['C'] = 2;
+  map['D'] = map['E'] = map['F'] = 3;
+  map['G'] = map['H'] = map['I'] = 4;
+  map['J'] = map['K'] = map['L'] = 5;
+  map['M'] = map['N'] = map['O'] = 6;
+  map['P'] = map['R'] = map['S'] = 7;
+  map['T'] = map['U'] = map['V'] = 8;
+  map['W'] = map['X'] = map['Y'] = 9;
+  map['Q'] = map['Z'] = 0;
 
-  printed = false;
-  for ( i = 0; i < 4617; i += 1 ) {
-    fscanf( dict, "%s", s );
-
-    q = 0;
-    for ( j = 0; s[ j ]; j += 1 ) {
-      q *= 10;
-      q += M[ s[ j ] ];
+  bool printed = false;
+  while (true) {
+    char name[13];
+    if (fscanf(dictionary, "%s", name) == EOF) {
+      break;
     }
-    if ( n == q ) {
-      puts( s );
 
+    if (num == Hash(map, name)) {
+      printf("%s\n", name);
       printed = true;
     }
   }
-  if ( !printed ) {
-    puts( "NONE" );
+  if (!printed) {
+    printf("NONE\n");
   }
 
   return 0;
